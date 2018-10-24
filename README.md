@@ -46,19 +46,19 @@ algorithm
 
 ## Test Cases
 
-1. Verify that the web app loads with default values
+### Verify that the web app loads with default values
 
 Steps:
 - Load page from URL.
 
 Expect results:
 - Fields should be filled in and outputs displays.
-principal = 15000
-term = 60 months
-type = used
-rate = 3
+  - principal = 15000
+  - term = 60 months
+  - type = used
+  - rate = 3
 
-1. Verify that reloading the web app resets the values to the default values after changing them.
+### Verify that reloading the web app resets the values to the default values after changing them.
 
 Steps:
 - Load page from URL.
@@ -67,12 +67,12 @@ Steps:
 
 Expect results:
 - Fields should be filled in and outputs displays.
-principal = 15000
-term = 60 months
-type = used
-rate = 3
+  - principal = 15000
+  - term = 60 months
+  - type = used
+  - rate = 3
 
-1. Verify that the principal field takes a number between 1000 and 100000
+### Verify that the principal field takes a number between 1000 and 100000
 
 Steps:
 - Load page from URL
@@ -81,7 +81,7 @@ Steps:
 Expected results:
 - Value is displayed in black font color with blue line under text box
 
-1. Verify that the principal field rejects any other input
+### Verify that the principal field rejects any other input
 
 Steps:
 - Load page from URL
@@ -90,7 +90,7 @@ Steps:
 Expected results:
 - Non-numerical characters are not displayed. A number less that 1000 or greater than 100000 is displayed in orange font color and bar under text entry box is orange.
 
-1. Verify that the term can be selected.
+### Verify that the term can be selected.
 
 Steps:
 - Load page from URL
@@ -100,7 +100,7 @@ Steps:
 Expected results:
 - Value is displayed in the field
 
-1. Verify that the type of loan is selectable.
+### Verify that the type of loan is selectable.
 
 Steps:
 - Load page from URL
@@ -110,7 +110,7 @@ Steps:
 Expected results:
 - Value is displayed in the field
 
-1. Verify that the interest takes decimal number between 0.0 and 99.0.
+### Verify that the interest takes decimal number between 0.0 and 99.0.
 
 Steps:
 - Load page from URL
@@ -120,7 +120,7 @@ Steps:
 Expected results:
 - Entered value is displayed in black font with a blue line under the text box
 
-1. Verify that the interest field rejects all other values
+### Verify that the interest field rejects all other values
 
 Steps:
 - Load page from URL
@@ -129,7 +129,7 @@ Steps:
 Expected results:
 - Entered value is displayed in orange font color, orange line is under the text box, and "Invalid rate" is displayed under the text box.
 
-1. Verify "Find rate box" displays text
+### Verify "Find rate box" displays text
 
 Steps:
 - Load page from URL
@@ -138,7 +138,7 @@ Steps:
 Expected results:
 Dropdown is displayed with "Choose an available rate from a lender below"
 
-1. Verify the help for principal displays text
+### Verify the help for principal displays text
 
 Steps:
 - Load page from URL
@@ -147,7 +147,7 @@ Steps:
 Expected results:
 - Text box is displayed with the help text
 
-1. Verify the help for term displays text
+### Verify the help for term displays text
 
 Steps:
 - Load page from URL
@@ -156,7 +156,7 @@ Steps:
 Expected results:
 - Text box is displayed with the help text
 
-12. Verify any change to principal, term, type, rate updates the outputs
+### Verify any change to principal, term, type, rate updates the outputs
 
 Steps:
 - Load page from URL
@@ -165,7 +165,7 @@ Steps:
 Expected results:
 - Monthly payment, Total principal paid, and Total interest paid, should update.
 
-13. Verify the algorithm to calculate outputs is correct
+### Verify the algorithm to calculate outputs is correct
 
 Steps:
 Enter values for inputs.

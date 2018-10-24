@@ -169,15 +169,16 @@ Expected results:
 
 Steps:
 Enter values for inputs.
-Compare results with output from the following formula A=P*(r(1+r)^{n})/((1+r)^{n}-1)}
+Compare results with output from the following formulae:
+- Monthly payment: A=P*(r(1+r)^{n})/((1+r)^{n}-1)}
 
 One set of inputs:
-principal = 15000
-term = 60 months
-type = used
-rate = 3
+- principal = 15000
+- term = 60 months
+- type = used
+- rate = 3
 
 Expected results:
-payment = 270
-princ paid = 15000
-intereset paid = 1172
+- payment = 270
+- princ paid = 15000
+- intereset paid = 1172

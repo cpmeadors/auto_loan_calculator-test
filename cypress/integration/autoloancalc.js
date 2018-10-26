@@ -13,14 +13,9 @@ describe('Open auto loan calculator', function() {
       .should('have.value', '3')
   })
 
-  it('Verify that reloading the web app resets the values to the default values after changing them.', function () {
-
-// dont think I need this for automated testing.  
-
-})
-
   it('Verify that the principal field takes a number between 1000 and 100000', function () {
 
+    //valid value
     cy.get('[data-cy=amount]')
       .click()
       .type('20000')
@@ -31,36 +26,61 @@ describe('Open auto loan calculator', function() {
 
   it('Verify that the principal field rejects any other input', function () {
 
+    //lower invalid boundary
     cy.get('[data-cy=amount]')
       .clear()
       .type('999')
-      .should('have.css', 'background-color')
-      .and('be.colored', '#cf4931')
-// html indicates there is an error-message as well.
-
+    cy.get('[filter-title=amount')
+      .should('have.class', '--has-error')
+    
+    //upper invalid boundary  
     cy.get('[data-cy=amount]')
       .clear()
       .type('100001')
-      .should('have.color', '#cf4931')
+    cy.get('[filter-title=amount')
+      .should('have.class', '--has-error')
+
+  })
+
+  it('Verify the help for principal displays text', function () {
+
+    cy.get('#Howmuchareyoulookingtoborrow\\?TT')
+      .click()
 
   })
 
   it('Verify that the term can be selected', function () {
 
-    cy.get('[data-ri-filtername=term]')
-// can't figure out how to replicate user experience. should click to show list then select one.
+  cy.get('[data-ri-filtername=term').within(() => {
+    cy.get('p.dropdown__selected')
+    .click()
+    })
+  cy.get('.dropdown__list-container').contains('36 months')
+  .click()
+  })
+
+  it('Verify the help for term displays text', function () {
+
+    cy.get('#Forhowlong\\?TT')
+      .click()
 
   })
 
   it('Verify that the type of loan is selectable.', function () {
 
-    cy.get('[data-ri-filtername=new-used')
-// same issues as with term.
+  cy.get('[data-ri-filtername=new-used').within(() => {
+    cy.get('p.dropdown__selected')
+    .click()
+    })
+  cy.get('.dropdown__list-container').contains('New')
+  .click()
   })
 
   it('Verify that the interest takes decimal number between 0.0 and 99.0.', function () {
 
+    // valid value
     cy.get('[data-ri-filtername=interest-rate')
+      .clear()
       .click()
       .type('5.1')
       .type('{enter}')
@@ -70,55 +90,50 @@ describe('Open auto loan calculator', function() {
 
   it('Verify that the interest field rejects all other values', function () {
 
+    //invalid lower boundary
     cy.get('[data-ri-filtername=interest-rate')
       .clear()
       .click()
       .type('0.0')
       .type('{enter}')
-      .should('have.value', '5.1')
-// still can't figure out how to check font color or get "error-message"
+    cy.contains('Invalid rate')
 
+    //invalid upper boundary
     cy.get('[data-ri-filtername=interest-rate')
       .clear()
       .click()
       .type('99.0')
       .type('{enter}')
-      .should('have.value', '5.1')
+    cy.contains('Invalid rate')
   })
 
   it('Verify "Find rate box" displays text', function () {
 
    cy.get('[data-ri-filtername=available-rates]')
-// can't figure out how to show the "tool tip"
-
+     .click()
+   cy.get('[data-ri-filtername=available-rates] p')
+     .should('have.class', '--is-active')
   })
 
-  it('Verify the help for principal displays text', function () {
-
-    cy.get('#Howmuchareyoulookingtoborrow\?TT').contains('i')
-      .click()
-
-// 
-// The amount you need to borrow to purchase your car. This could include a down payment and any estimated fees from your car purchase.
-  })
-
-  it('Verify the help for term displays text', function () {
-
-    cy.get('#Forhowlong\?TT').contains(i)
-      .click()
-
-  })
-
+  
   it('Verify any change to principal, term, type, rate updates the outputs', function () {
-    cy.get('.numeral')
-    cy.get('.\+border-bottom > :nth-child(2)')
-    cy.get('.calculator__results-section > :nth-child(1) > .\+mg-bottom-sm > :nth-child(2)')
+    
+    //verify montly payment
+    cy.get('p.numeral')
+      .should('have.text', '$600')
+
+    //verify total paid principal
+    cy.contains('Total Principal Paid').next()
+      .should('have.text', '$20,000')
+
+    //verify total paid interest
+    cy.contains('Total Interest Paid').next()
+      .should('have.text', '$1,611')
   })
 
   it('Verify the algorithm to calculate outputs is correct', function () {
 
-    
-
+  
   })
 })
 

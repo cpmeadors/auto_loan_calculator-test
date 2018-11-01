@@ -1,5 +1,5 @@
 # auto_loan_calulator-test
-Test plan and test cases for auto load calculator found at https://www.bankrate.com/calculators/auto/auto-loan-calculator.aspx
+Test plan, test cases, and automated test scripts for auto load calculator found at https://www.bankrate.com/calculators/auto/auto-loan-calculator.aspx. The automated scripts are written in Cypress, a javascript test framework.
 
 ## Test conditions
 
